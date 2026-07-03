@@ -2,7 +2,7 @@ import Footer from "@/components/shared/Footer";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
-
+import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   metadataBase: new URL("http://abdullahchaudhary.me"),
   title: {
@@ -75,9 +75,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className="light" style={{ scrollBehavior: "auto" }}>
       <body className="antialiased relative min-h-screen overflow-x-hidden selection:bg-primary selection:text-white">
         <SmoothScrollProvider>
+          <Analytics />
           <Navbar />
           {children}
-          <Footer/>
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>
